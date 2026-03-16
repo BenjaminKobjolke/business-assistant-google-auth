@@ -85,3 +85,4 @@ code_analysis_results/
 .mypy_cache
 .pytest_cache
 .ruff_cache
+/.claude/commit_msg.tmp
