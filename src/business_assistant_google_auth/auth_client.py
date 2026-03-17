@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import ssl
 from pathlib import Path
 
 from .config import GoogleAuthSettings
@@ -72,6 +73,16 @@ class GoogleAuthClient:
 
         self._service = build(self._api_name, self._api_version, credentials=creds)
         return self._service
+
+    def _reset_service(self) -> None:
+        """Reset the cached API service, forcing recreation on next use."""
+        self._service = None
+
+    def _is_connection_error(self, exc: Exception) -> bool:
+        """Check if an exception is a retryable connection/SSL error."""
+        return isinstance(exc, (ssl.SSLError, ConnectionError)) or (
+            isinstance(exc, OSError) and "SSL" in str(exc)
+        )
 
     def test_connection(self) -> bool:
         """Test the API connection. Subclasses should override for specific checks."""
