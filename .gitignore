@@ -86,3 +86,7 @@ code_analysis_results/
 .pytest_cache
 .ruff_cache
 /.claude/commit_msg.tmp
+
+# Local Claude files and plans
+.claude/
+/PLAN_*.md
