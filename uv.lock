@@ -420,6 +420,28 @@ dev = [
 ]
 
 [[package]]
+name = "business-assistant-contacts-plugin"
+version = "0.1.0"
+source = { editable = "../business-assistant-contacts-plugin" }
+dependencies = [
+    { name = "business-assistant-google-auth" },
+    { name = "business-assistant-v2" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "business-assistant-google-auth", editable = "." },
+    { name = "business-assistant-v2", editable = "../business-assistant-v2" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", specifier = ">=1.0.0" },
+    { name = "pytest", specifier = ">=8.0.0" },
+    { name = "ruff", specifier = ">=0.4.0" },
+]
+
+[[package]]
 name = "business-assistant-filesystem-plugin"
 version = "0.1.0"
 source = { editable = "../business-assistant-filesystem-plugin" }
@@ -623,6 +645,7 @@ source = { editable = "../business-assistant-v2" }
 dependencies = [
     { name = "bot-commander", extra = ["xmpp"] },
     { name = "business-assistant-calendar-plugin" },
+    { name = "business-assistant-contacts-plugin" },
     { name = "business-assistant-filesystem-plugin" },
     { name = "business-assistant-imap-plugin" },
     { name = "business-assistant-obsidian-plugin" },
@@ -630,6 +653,7 @@ dependencies = [
     { name = "business-assistant-rtm-plugin" },
     { name = "business-assistant-transcribe-plugin" },
     { name = "business-assistant-tts-plugin" },
+    { name = "business-assistant-web-plugin" },
     { name = "business-assistant-workingtimes-plugin" },
     { name = "huggingface-hub" },
     { name = "pydantic-ai" },
@@ -644,6 +668,7 @@ dependencies = [
 requires-dist = [
     { name = "bot-commander", extras = ["xmpp"], editable = "../bot-commander" },
     { name = "business-assistant-calendar-plugin", editable = "../business-assistant-calendar-plugin" },
+    { name = "business-assistant-contacts-plugin", editable = "../business-assistant-contacts-plugin" },
     { name = "business-assistant-filesystem-plugin", editable = "../business-assistant-filesystem-plugin" },
     { name = "business-assistant-imap-plugin", editable = "../business-assistant-imap-plugin" },
     { name = "business-assistant-obsidian-plugin", editable = "../business-assistant-obsidian-plugin" },
@@ -651,6 +676,7 @@ requires-dist = [
     { name = "business-assistant-rtm-plugin", editable = "../business-assistant-rtm-plugin" },
     { name = "business-assistant-transcribe-plugin", editable = "../business-assistant-transcribe-plugin" },
     { name = "business-assistant-tts-plugin", editable = "../business-assistant-tts-plugin" },
+    { name = "business-assistant-web-plugin", editable = "../business-assistant-web-plugin" },
     { name = "business-assistant-workingtimes-plugin", editable = "../business-assistant-workingtimes-plugin" },
     { name = "huggingface-hub", specifier = ">=0.34,<1.0" },
     { name = "pydantic-ai" },
@@ -660,6 +686,24 @@ requires-dist = [
     { name = "torchaudio", index = "https://download.pytorch.org/whl/cu128" },
     { name = "wtpsplit" },
 ]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", specifier = ">=1.0.0" },
+    { name = "pytest", specifier = ">=8.0.0" },
+    { name = "ruff", specifier = ">=0.4.0" },
+]
+
+[[package]]
+name = "business-assistant-web-plugin"
+version = "0.1.0"
+source = { editable = "../business-assistant-web-plugin" }
+dependencies = [
+    { name = "business-assistant-v2" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "business-assistant-v2", editable = "../business-assistant-v2" }]
 
 [package.metadata.requires-dev]
 dev = [
